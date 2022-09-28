@@ -10,7 +10,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Database\\Factories\\": "database/factories/"
+            "Jclavo\\Profiles\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -18,5 +18,13 @@
             "name": "jclavo"
         }
     ],
-    "require": {}
+    "require": {
+        "php" : "^8.0",
+        "illuminate/database": "^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "fakerphp/faker": "^1.9.1",
+        "orchestra/testbench": "^7.8"
+    }
 }
