@@ -2,6 +2,13 @@
     "name": "jclavo/profiles",
     "description": "This a package to manage profiles on Ministerio da Cidadania",
     "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jclavo",
+            "email": "jclavo@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Jclavo\\Profiles\\": "src/",
@@ -13,11 +20,6 @@
             "Jclavo\\Profiles\\Tests\\": "tests/"
         }
     },
-    "authors": [
-        {
-            "name": "jclavo"
-        }
-    ],
     "require": {
         "php" : "^8.0",
         "illuminate/database": "^9.0"
@@ -26,5 +28,7 @@
         "phpunit/phpunit": "^9.5",
         "fakerphp/faker": "^1.9.1",
         "orchestra/testbench": "^7.8"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
