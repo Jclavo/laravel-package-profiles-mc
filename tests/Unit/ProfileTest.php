@@ -5,6 +5,7 @@ namespace Jclavo\Profiles\Tests\Unit;
 use Jclavo\Profiles\Models\Profile;
 use Jclavo\Profiles\Tests\TestCase;
 // use PHPUnit\Framework\TestCase;
+use Illuminate\Database\QueryException;
 
 class ProfileTest extends TestCase 
 {
@@ -20,6 +21,17 @@ class ProfileTest extends TestCase
         $profiles = Profile::all();
 
         $this->assertEquals($records, $profiles->count());
+    }
+
+    /**
+     * test_create_profile_constraint_violation
+     *
+     * @return void
+     */
+    public function test_create_profile_constraint_violation()
+    {
+        $this->expectException(QueryException::class);
+        Profile::factory()->create(['name' => null]);
     }
 
     /**
