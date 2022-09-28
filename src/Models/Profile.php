@@ -4,7 +4,7 @@ namespace Jclavo\Profiles\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-// use Jclavo\Profiles\Database\Factories\ProfileFactory;
+use Jclavo\Profiles\Database\Factories\ProfileFactory;
 
 class Profile extends Model
 {
@@ -19,7 +19,7 @@ class Profile extends Model
      */
     protected static function newFactory()
     {
-        return new \Jclavo\Profiles\Database\Factories\ProfileFactory;
+        return new ProfileFactory;
     }
 
     /**
