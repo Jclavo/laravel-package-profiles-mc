@@ -8,9 +8,22 @@ use Jclavo\Profiles\Tests\TestCase;
 
 class ProfileTest extends TestCase 
 {
+    /**
+     * test_read_profiles
+     *
+     * @return void
+     */
+    public function test_read_profiles()
+    {
+        $records = 10;
+        Profile::factory($records)->create();
+        $profiles = Profile::all();
+
+        $this->assertEquals($records, $profiles->count());
+    }
 
     /**
-     * test_activate_profile
+     * test_create_profile
      *
      * @return void
      */
@@ -21,6 +34,50 @@ class ProfileTest extends TestCase
         $this->assertNotNull($profile);
         
         $this->assertEquals(1, Profile::count());
+    }
+
+    /**
+     * test_update_profile
+     *
+     * @return void
+     */
+    public function test_update_profile()
+    {
+        $profile = Profile::factory()->create();
+        $profileNew = Profile::factory()->make();
+
+        Profile::updateOrCreate(
+            [
+                'id' => $profile->id
+            ], [
+                'name' => $profileNew->name,
+                'description' => $profileNew->description,
+                'activated' => $profileNew->activated,
+                'fixed' => $profileNew->fixed
+            ]
+        );
+
+        $this->assertDatabaseHas('profiles', [
+            'id' => $profile->id,
+            'name' => $profileNew->name,
+            'description' => $profileNew->description,
+            'activated' => $profileNew->activated,
+            'fixed' => $profileNew->fixed
+        ]);
+    }
+
+    /**
+     * test_delete_profile
+     *
+     * @return void
+     */
+    public function test_delete_profile()
+    {
+        $profile = Profile::factory()->create();
+
+        $profile->delete();
+        
+        $this->assertEquals(0, Profile::count());
     }
 
     /**
