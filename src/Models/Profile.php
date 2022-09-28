@@ -10,6 +10,8 @@ class Profile extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'activated', 'fixed'];
+
     /**
      * Create a new factory instance for the model.
      *
