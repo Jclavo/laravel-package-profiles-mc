@@ -20,4 +20,17 @@ class Profile extends Model
         return new \Jclavo\Profiles\Database\Factories\ProfileFactory;
     }
 
+    /**
+     * Custom function section
+     */
+
+    /**
+     * changeActivatedStatus
+     */
+    public function changeActivatedStatus(bool $status): void
+    {
+        $this->activated = $status;
+        $this->save();
+    }
+
 }
