@@ -21,6 +21,20 @@ You can install the package via composer:
 composer require jclavo/profiles
 ```
 
+After that, add the package providers on `app.php`
+
+```php
+
+    'providers' => [
+        ...
+        /*
+        * Package Service Providers...
+        */
+        Jclavo\Profiles\Providers\ProfilesProvider::class,
+        ...
+    ]
+```
+
 <!-- You can publish and run the migrations with:
 
 ```bash
